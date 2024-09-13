@@ -1,0 +1,41 @@
+HELP
+
+CLEAR DATABASE
+
+DELETE TABLE car_sale
+
+IMPORT FROM used_car_sale.csv AS car_sale
+
+SHOW TABLES
+
+SHOW TABLES NAME
+
+SHOW car_sale LIMIT 10
+
+CREATE TABLE new_table [name, revenue, employee] WITH VALUES [USC, 1000000, 5000]
+
+ADD TO TABLE car_sale WITH VALUES [NewBrand,DSCI,2023,0.0,24-7 study power,6-Speed Automatic,All-wheel Drive,Gasoline,16-23**,**Black,,0.0,0.0,0.0,CarTopia,3.9,4.7,14.0,100.0**,**12800.0]
+
+ADD TO TABLE car_sale WITH VALUES [ZiyuChen,DSCI,2024,0.0,24-7 study power,6-Speed Automatic,All-wheel Drive,Gasoline,16-23**,**Black,,0.0,0.0,0.0,CarTopia,3.9,4.7,14.0,100.0**,**12800.0]
+
+FIND model FROM car_sale WHERE year = '2023' WITH ORDER ASC
+
+FIND model FROM car_sale WHERE year = '2024' WITH ORDER ASC
+
+FIND ALL FROM car_sale WHERE year = '2024' WITH ORDER ASC
+
+UPDATE TO TABLE car_sale LET year = year + 1 WHERE manufacturer = 'ZiyuChen'
+
+REMOVE FROM TABLE car_sale THAT manufacturer = 'NewBrand'
+
+FIND ALL FROM car_sale WHERE model = 'DSCI'
+
+DELETE TABLE car_company
+
+JOIN manu WITH car_sale AS car_company ON THAT manu.name = car_sale.manufacturer
+
+FIND MAX(mileage) FROM car_company FOR EACH manufacturer WITH ORDER DESC
+
+FIND COUNT(#) FROM car_company FOR EACH manufacturer WHERE year = '2023' WITH ORDER ASC
+
+EXIT
