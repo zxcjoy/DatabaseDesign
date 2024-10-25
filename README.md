@@ -80,7 +80,9 @@ First, we parse the command by using regular expression to extract key component
 such as the target table, columns for aggregation, grouping, and ordering criteria. Next, we load data
 in chunks. We will read from each small csv file and process the file to get a partial result. This
 approach ensures memory efficiency. For each chunk we need to apply the following operations:
+
 ⚫ Filtering: If a WHERE condition is present, filter the data using Pandas' boolean indexing.
+
 ⚫ Grouping and Aggregation: Use Pandas' groupby and aggregation methods (like sum,
 count, min, max) on the specified column(s)
 
